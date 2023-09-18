@@ -1,9 +1,11 @@
 class StorageManager {
+    static nomeStorage = 'inventario';
+
     static get inventario() {
-        return JSON.parse(localStorage.getItem('inventario')) ?? [];
+        return JSON.parse(localStorage.getItem(storageName)) ?? [];
     }
 
-    static set inventario(inventario) {
-        localStorage.setItem('inventario', JSON.stringify(inventario));
+    static set inventario(novoInventario) {
+        localStorage.setItem(storageName, JSON.stringify(novoInventario));
     }
 }
