@@ -1,55 +1,68 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Sistema de Estoque</title>
+        <title>Sistema de Estoque</title>
 
-    <script src="js/script.js" defer></script>
-  </head>
-  <body>
-    <h1>Sistema de Estoque</h1>
+        <script src="js/script.js" defer></script>
 
-    <form method="POST">
-      <h2>Adicionar Produto</h2>
+        <style>
+            table * {
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Sistema de Estoque</h1>
 
-      <label for="nome">Nome</label>
-      <input type="text" name="nome" />
+        <form id="form-add" method="POST">
+            <h2>Adicionar Produto</h2>
 
-      <label for="preco">Preço</label>
-      <input type="text" name="preco" />
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" required />
 
-      <input type="submit" value="adicionar" />
-    </form>
+            <label for="quantidade">Quantidade</label>
+            <input type="number" name="quantidade" required />
 
-    <form method="POST">
-      <h2>Adicionar Produto</h2>
+            <label for="preco">Preço Unitário</label>
+            <input type="number" name="preco" required />
 
-      <label for="id">ID</label>
-      <input type="text" name="id" />
+            <input type="submit" value="adicionar" />
+        </form>
 
-      <label for="nome">Nome</label>
-      <input type="text" name="nome" />
+        <form id="form-update" method="POST">
+            <h2>Atualizar Produto</h2>
 
-      <label for="preco">Preço</label>
-      <input type="text" name="preco" />
+            <label for="id">ID</label>
+            <input type="text" name="id" required />
 
-      <label for="quantidade">Quantidade</label>
-      <input type="text" name="quantidade" />
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" />
 
-      <input type="submit" value="atualizar" />
-    </form>
+            <label for="quantidade">Quantidade</label>
+            <input type="number" name="quantidade" />
 
-    <form method="POST">
-      <h2>Remover Produto</h2>
+            <label for="preco">Preço Unitário</label>
+            <input type="number" name="preco" />
 
-      <label for="id">ID</label>
-      <input type="text" name="id" />
+            <input type="submit" value="atualizar" />
+        </form>
 
-      <input type="submit" value="remover" />
-    </form>
+        <form id="form-remove" method="POST">
+            <h2>Remover Produto</h2>
 
-    <table border="1"></table>
-  </body>
+            <label for="id">ID</label>
+            <input type="text" name="id" required />
+
+            <input type="submit" value="remover" />
+        </form>
+
+        <section id="lista-produtos">
+            <h2>Lista de Produtos</h2>
+
+            <table border="1" cellspacing="0"></table>
+        </section>
+    </body>
 </html>
