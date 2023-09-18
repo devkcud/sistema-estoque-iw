@@ -1,7 +1,9 @@
 const estoque = new Estoque();
 const tabela = new Tabela();
+const select = new Select();
 
 tabela.atualizar();
+select.atualizar();
 
 document.getElementById('form-add').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -18,13 +20,14 @@ document.getElementById('form-add').addEventListener('submit', (e) => {
 
     StorageManager.inventario = estoque.produtos;
     tabela.atualizar();
+    select.atualizar();
 });
 
 document.getElementById('form-update').addEventListener('submit', (e) => {
     e.preventDefault();
 
     estoque.atualizar(
-        e.target['id'].value,
+        e.target['id-select'].value,
         e.target['nome'].value,
         e.target['quantidade'].value,
         e.target['preco'].value,
@@ -36,14 +39,15 @@ document.getElementById('form-update').addEventListener('submit', (e) => {
 
     StorageManager.inventario = estoque.produtos;
     tabela.atualizar();
+    select.atualizar();
 });
 
 document.getElementById('form-remove').addEventListener('submit', (e) => {
     e.preventDefault();
 
-    estoque.deletar(e.target['id'].value);
-    e.target['id'].value = '';
+    estoque.deletar(e.target['id-select'].value);
 
     StorageManager.inventario = estoque.produtos;
     tabela.atualizar();
+    select.atualizar();
 });

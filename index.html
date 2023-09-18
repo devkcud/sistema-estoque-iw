@@ -7,6 +7,7 @@
         <title>Sistema de Estoque</title>
 
         <script src="js/utils/StorageManager.js" defer></script>
+        <script src="js/utils/Select.js" defer></script>
         <script src="js/utils/estoque.js" defer></script>
         <script src="js/utils/tabela.js" defer></script>
         <script src="js/main.js" defer></script>
@@ -39,7 +40,7 @@
             <h2>Atualizar Produto</h2>
 
             <label for="id">ID</label>
-            <input type="text" name="id" required />
+            <select name="id-select" id="atualizar-id-select" required></select>
 
             <label for="nome">Nome</label>
             <input type="text" name="nome" />
@@ -57,7 +58,7 @@
             <h2>Remover Produto</h2>
 
             <label for="id">ID</label>
-            <input type="text" name="id" required />
+            <select name="id-select" id="remove-id-select" required></select>
 
             <input type="submit" value="Remover" />
         </form>
