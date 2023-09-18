@@ -6,7 +6,10 @@
 
         <title>Sistema de Estoque</title>
 
-        <script src="js/script.js" defer></script>
+        <script src="js/utils/StorageManager.js" defer></script>
+        <script src="js/utils/estoque.js" defer></script>
+        <script src="js/utils/tabela.js" defer></script>
+        <script src="js/main.js" defer></script>
 
         <style>
             table * {
@@ -27,7 +30,7 @@
             <input type="number" name="quantidade" required />
 
             <label for="preco">Preço Unitário</label>
-            <input type="number" name="preco" required />
+            <input type="number" min="0" step="0.01" name="preco" required />
 
             <input type="submit" value="adicionar" />
         </form>
@@ -45,7 +48,7 @@
             <input type="number" name="quantidade" />
 
             <label for="preco">Preço Unitário</label>
-            <input type="number" name="preco" />
+            <input type="number" min="0" step="0.01" name="preco" />
 
             <input type="submit" value="atualizar" />
         </form>
