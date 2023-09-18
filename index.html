@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Sistema de Estoque</title>
+  </head>
+  <body>
+    <h1>Sistema de Estoque</h1>
+
+    <form method="POST">
+      <h2>Adicionar Produto</h2>
+
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" />
+
+      <label for="preco">Preço</label>
+      <input type="text" name="preco" />
+
+      <input type="submit" value="adicionar" />
+    </form>
+
+    <form method="POST">
+      <h2>Adicionar Produto</h2>
+
+      <label for="id">ID</label>
+      <input type="text" name="id" />
+
+      <label for="nome">Nome</label>
+      <input type="text" name="nome" />
+
+      <label for="preco">Preço</label>
+      <input type="text" name="preco" />
+
+      <label for="quantidade">Quantidade</label>
+      <input type="text" name="quantidade" />
+
+      <input type="submit" value="atualizar" />
+    </form>
+
+    <form method="POST">
+      <h2>Remover Produto</h2>
+
+      <label for="id">ID</label>
+      <input type="text" name="id" />
+
+      <input type="submit" value="remover" />
+    </form>
+
+    <table border="1">
+      <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Quantidade</th>
+        <th>Preço</th>
+      </tr>
+    </table>
+  </body>
+</html>
