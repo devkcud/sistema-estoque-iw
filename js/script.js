@@ -108,3 +108,47 @@ class Inventario {
 const inv = new Inventario();
 
 table.update();
+
+for (const form of document.querySelectorAll('form')) {
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+
+        switch (e.submitter.value) {
+            case 'adicionar': {
+                inv.add(
+                    e.target['nome'].value,
+                    e.target['quantidade'].value,
+                    e.target['preco'].value,
+                );
+
+                e.target['nome'].value = '';
+                e.target['quantidade'].value = '';
+                e.target['preco'].value = '';
+
+                break;
+            }
+
+            case 'atualizar': {
+                inv.update(e.target['id'].value, {
+                    nome: e.target['nome'].value === '' ? null : e.target['nome'].value,
+                    quantidadeEstoque: e.target['quantidade'].value === '' ? null : e.target['quantidade'].value,
+                    precoUnitario: e.target['preco'].value === '' ? null : e.target['preco'].value,
+                });
+
+                e.target['nome'].value = '';
+                e.target['quantidade'].value = '';
+                e.target['preco'].value = '';
+
+                break;
+            }
+
+            case 'remover': {
+                inv.delete(e.target['id'].value);
+
+                e.target['id'].value = '';
+
+                break;
+            }
+        }
+    });
+}
