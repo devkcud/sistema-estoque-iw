@@ -11,14 +11,14 @@ class Tabela {
         headerRow.insertCell().textContent = 'Preço Total';
     }
 
-    #insertRow(id, nome, quantidadeEstoque, precoUnitario) {
+    #insertRow(id, nome, quantidade, precoUnitario) {
         const row = this.#table.insertRow();
 
         row.insertCell().textContent = id;
         row.insertCell().textContent = nome;
-        row.insertCell().textContent = quantidadeEstoque;
+        row.insertCell().textContent = quantidade;
         row.insertCell().textContent = `R$${precoUnitario}`;
-        row.insertCell().textContent = `R$${quantidadeEstoque * precoUnitario}`;
+        row.insertCell().textContent = `R$${quantidade * precoUnitario}`;
     }
 
     #insertFooter() {
@@ -64,14 +64,14 @@ class Inventario {
         table.update();
     }
 
-    add(nome, quantidadeEstoque, precoUnitario) {
+    add(nome, quantidade, precoUnitario) {
         let id = Math.random().toString(36).substring(2);
 
         while (this.#items.find((produto) => produto[0] === id)) {
             id = Math.random().toString(36).substring(2);
         }
 
-        this.#items.push([id, nome, quantidadeEstoque, precoUnitario]);
+        this.#items.push([id, nome, quantidade, precoUnitario]);
 
         this.#store();
     }
@@ -80,7 +80,7 @@ class Inventario {
         for (const item of this.#items) {
             if (item[0] === id) {
                 item[1] = obj.nome ?? item[1];
-                item[2] = obj.quantidadeEstoque ?? item[2];
+                item[2] = obj.quantidade ?? item[2];
                 item[3] = obj.precoUnitario ?? item[3];
 
                 break;
@@ -109,46 +109,41 @@ const inv = new Inventario();
 
 table.update();
 
-for (const form of document.querySelectorAll('form')) {
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
+document.getElementById('form-add').addEventListener('submit', (e) => {
+    e.preventDefault();
 
-        switch (e.submitter.value) {
-            case 'adicionar': {
-                inv.add(
-                    e.target['nome'].value,
-                    e.target['quantidade'].value,
-                    e.target['preco'].value,
-                );
+    inv.add(
+        e.target['nome'].value,
+        e.target['quantidade'].value,
+        e.target['preco'].value,
+    );
 
-                e.target['nome'].value = '';
-                e.target['quantidade'].value = '';
-                e.target['preco'].value = '';
+    e.target['nome'].value = '';
+    e.target['quantidade'].value = '';
+    e.target['preco'].value = '';
+});
 
-                break;
-            }
+document.getElementById('form-update').addEventListener('submit', (e) => {
+    e.preventDefault();
 
-            case 'atualizar': {
-                inv.update(e.target['id'].value, {
-                    nome: e.target['nome'].value === '' ? null : e.target['nome'].value,
-                    quantidadeEstoque: e.target['quantidade'].value === '' ? null : e.target['quantidade'].value,
-                    precoUnitario: e.target['preco'].value === '' ? null : e.target['preco'].value,
-                });
+    function estaVazio(value) {
+        return value === '' ? null : value;
+    }
 
-                e.target['nome'].value = '';
-                e.target['quantidade'].value = '';
-                e.target['preco'].value = '';
-
-                break;
-            }
-
-            case 'remover': {
-                inv.delete(e.target['id'].value);
-
-                e.target['id'].value = '';
-
-                break;
-            }
-        }
+    inv.update(e.target['id'].value, {
+        nome: estaVazio(e.target['nome'].value),
+        quantidade: estaVazio(e.target['quantidade'].value),
+        precoUnitario: estaVazio(e.target['preco'].value),
     });
-}
+
+    e.target['nome'].value = '';
+    e.target['quantidade'].value = '';
+    e.target['preco'].value = '';
+});
+
+document.getElementById('form-remove').addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    inv.delete(e.target['id'].value);
+    e.target['id'].value = '';
+});
