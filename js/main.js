@@ -37,9 +37,13 @@ document.getElementById('form-update').addEventListener('submit', (e) => {
     e.target['quantidade'].value = '';
     e.target['preco'].value = '';
 
+    const indexAnterior = e.target['id-select'].selectedIndex;
+
     StorageManager.inventario = estoque.produtos;
     tabela.atualizar();
     select.atualizar();
+
+    e.target['id-select'].selectedIndex = indexAnterior;
 });
 
 document.getElementById('form-remove').addEventListener('submit', (e) => {
