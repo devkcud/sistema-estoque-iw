@@ -10,6 +10,14 @@ class Produto {
 class Estoque {
     #produtos = Storage.inventario;
 
+    #clamp(quantidade) {
+        if (quantidade < 0) {
+            return 0;
+        }
+
+        return quantidade;
+    }
+
     adicionar(nome, quantidade, precoUnitario) {
         let id = Math.random().toString(36).substring(2);
 
@@ -17,7 +25,9 @@ class Estoque {
             id = Math.random().toString(36).substring(2);
         }
 
-        this.#produtos.push(new Produto(id, nome, quantidade, precoUnitario));
+        this.#produtos.push(
+            new Produto(id, nome, this.#clamp(quantidade), precoUnitario),
+        );
     }
 
     atualizar(id, nome, quantidade, precoUnitario) {
@@ -32,8 +42,14 @@ class Estoque {
         }
 
         produto.nome = estaVazio(nome) ?? produto.nome;
-        produto.quantidade = estaVazio(quantidade) ?? produto.quantidade;
-        produto.precoUnitario = estaVazio(precoUnitario) ?? produto.precoUnitario;
+
+        produto.quantidade = this.#clamp(
+            estaVazio(quantidade) ?? produto.quantidade,
+        );
+
+        produto.precoUnitario = this.#clamp(
+            estaVazio(precoUnitario) ?? produto.precoUnitario,
+        );
     }
 
     deletar(id) {
