@@ -49,9 +49,25 @@ document.getElementById('form-update').addEventListener('submit', (e) => {
 document.getElementById('form-remove').addEventListener('submit', (e) => {
     e.preventDefault();
 
-    estoque.deletar(e.target['id-select'].value);
+    const dialog = document.querySelector('dialog#confirm-remove');
+    dialog.showModal();
 
-    StorageManager.inventario = estoque.produtos;
-    tabela.atualizar();
-    select.atualizar();
+    const form = dialog.querySelector('form');
+    const nomeProduto = StorageManager.inventario.find(
+        (produto) => produto.id === e.target['id-select'].value,
+    ).nome;
+
+    form.querySelector(
+        'p',
+    ).textContent = `Você tem certeza que quer remover ${nomeProduto}?`;
+
+    form.addEventListener('submit', ({ submitter }) => {
+        if (submitter.value === 'Sim') {
+            estoque.deletar(e.target['id-select'].value);
+
+            StorageManager.inventario = estoque.produtos;
+            tabela.atualizar();
+            select.atualizar();
+        }
+    });
 });
