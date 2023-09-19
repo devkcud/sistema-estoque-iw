@@ -23,7 +23,7 @@ class Select {
 
             select.appendChild(optionVazio);
 
-            StorageManager.inventario.forEach((produto) =>
+            Storage.inventario.forEach((produto) =>
                 select.appendChild(criarOption(produto.id, `${produto.nome} (${produto.id})`)),
             );
         });

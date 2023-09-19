@@ -19,7 +19,7 @@ class Tabela {
             'Preço Total',
         ]);
 
-        for (const produto of StorageManager.inventario) {
+        for (const produto of Storage.inventario) {
             this.#criarLinha([
                 produto.id,
                 produto.nome,
@@ -29,7 +29,7 @@ class Tabela {
             ]);
         }
 
-        const total = StorageManager.inventario.reduce(function (
+        const total = Storage.inventario.reduce(function (
             valor,
             { precoUnitario, quantidade },
         ) {

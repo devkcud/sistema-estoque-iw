@@ -8,7 +8,7 @@ class Produto {
 }
 
 class Estoque {
-    #produtos = StorageManager.inventario;
+    #produtos = Storage.inventario;
 
     adicionar(nome, quantidade, precoUnitario) {
         let id = Math.random().toString(36).substring(2);
@@ -39,7 +39,7 @@ class Estoque {
     deletar(id) {
         if (id === '*') {
             this.#produtos = [];
-            StorageManager.inventario = [];
+            Storage.inventario = [];
             return;
         }
 
