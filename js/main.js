@@ -23,6 +23,24 @@ document.getElementById('form-add').addEventListener('submit', (e) => {
     select.atualizar();
 });
 
+const formUpdate = document.getElementById('form-update');
+formUpdate.querySelector('select').addEventListener('change', (e) => {
+    formUpdate.querySelector('input[name="nome"]').value =
+        Storage.inventario.find(
+            (produto) => produto.id === e.target.value,
+        ).nome;
+
+    formUpdate.querySelector('input[name="quantidade"]').value =
+        Storage.inventario.find(
+            (produto) => produto.id === e.target.value,
+        ).quantidade;
+
+    formUpdate.querySelector('input[name="preco"]').value =
+        Storage.inventario.find(
+            (produto) => produto.id === e.target.value,
+        ).precoUnitario;
+});
+
 document.getElementById('form-update').addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -32,10 +50,6 @@ document.getElementById('form-update').addEventListener('submit', (e) => {
         e.target['quantidade'].value,
         e.target['preco'].value,
     );
-
-    e.target['nome'].value = '';
-    e.target['quantidade'].value = '';
-    e.target['preco'].value = '';
 
     const indexAnterior = e.target['id-select'].selectedIndex;
 
@@ -53,13 +67,13 @@ document.getElementById('form-remove').addEventListener('submit', (e) => {
     dialog.showModal();
 
     const form = dialog.querySelector('form');
-    const nomeProduto = Storage.inventario.find(
+    const produto = Storage.inventario.find(
         (produto) => produto.id === e.target['id-select'].value,
-    ).nome;
+    );
 
     form.querySelector(
         'p',
-    ).textContent = `Você tem certeza que quer remover ${nomeProduto}?`;
+    ).textContent = `Você tem certeza que quer remover ${produto.nome} (${produto.id})?`;
 
     form.addEventListener('submit', ({ submitter }) => {
         if (submitter.value === 'Sim') {
