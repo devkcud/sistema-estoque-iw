@@ -4,7 +4,6 @@ const select = new Select();
 
 const formAdd = document.getElementById('form-add');
 const formUpdate = document.getElementById('form-update');
-const formRemove = document.getElementById('form-remove');
 
 tabela.atualizar();
 select.atualizar();
@@ -70,32 +69,4 @@ formUpdate.addEventListener('submit', (e) => {
     select.atualizar();
 
     limparFormUpdate();
-});
-
-formRemove.addEventListener('submit', (e) => {
-    e.preventDefault();
-
-    const dialog = document.querySelector('dialog#confirm-remove');
-    dialog.showModal();
-
-    const form = dialog.querySelector('form');
-    const produto = Storage.inventario.find(
-        (produto) => produto.id === e.target['id-select'].value,
-    );
-
-    form.querySelector(
-        'p',
-    ).textContent = `Você tem certeza que quer remover ${produto.nome} (${produto.id})?`;
-
-    form.addEventListener('submit', ({ submitter }) => {
-        if (submitter.value === 'Sim') {
-            estoque.deletar(e.target['id-select'].value);
-
-            Storage.inventario = estoque.produtos;
-            tabela.atualizar();
-            select.atualizar();
-
-            limparFormUpdate();
-        }
-    });
 });

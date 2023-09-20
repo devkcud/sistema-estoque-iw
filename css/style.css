@@ -68,8 +68,8 @@ form > input {
     padding: 0.5rem;
 }
 
+button.botao-remover,
 form input[type='submit'] {
-    margin-block: 1rem;
     padding: 1rem;
 
     border: none;
@@ -158,6 +158,8 @@ dialog form div.inputs {
     display: grid;
     grid-template-columns: 1fr 70%;
     gap: 1rem;
+
+    margin-top: 2rem;
 }
 
 dialog form div.inputs input {
@@ -170,7 +172,10 @@ dialog form div.inputs input[value='Não']:hover {
     color: #ffffff;
 }
 
+button.botao-remover:hover,
 dialog form div.inputs input[value='Sim']:hover {
+    cursor: pointer;
+
     animation: shaking 0.4s infinite;
     background: #91343d;
     color: #ffffff;
@@ -226,3 +231,4 @@ dialog::backdrop {
         transform: scale(1.05);
     }
 }
+
