@@ -15,8 +15,6 @@ body {
     place-items: center;
 
     grid-template-columns: 500px 1fr;
-
-    gap: 5rem;
 }
 
 body > main {
@@ -68,7 +66,7 @@ form > input {
     padding: 0.5rem;
 }
 
-form > input[type='submit'] {
+form input[type='submit'] {
     margin-top: 1rem;
     padding: 1rem;
 
@@ -85,7 +83,7 @@ form > input[type='submit'] {
     box-shadow: 0 0 2px #000000;
 }
 
-form > input[type='submit']:hover {
+form input[type='submit']:hover {
     cursor: pointer;
 
     background-color: #ffffff;
@@ -105,13 +103,22 @@ form > select {
     border-radius: 100px;
 }
 
-table {
-    border-radius: 4px;
-
-    overflow: hidden;
+section#lista-produtos {
+    width: 100%;
+    height: 100vh;
 }
 
-table tr:not(:first-child):nth-child(odd) {
+section#lista-produtos > h2 {
+    margin: 10px;
+}
+
+table {
+    overflow: hidden;
+
+    width: 100%;
+}
+
+table tr:nth-child(odd) {
     background: #78a1bb;
     filter: brightness(80%);
 }
@@ -122,15 +129,11 @@ table tr:nth-child(even) {
     color: #ffffff;
 }
 
-table tr:not(:first-child):not(:last-child) td:not(:last-child) {
-    border-right: 1px solid #ffffff;
-}
-
-table tr:first-child td,
-table tr:last-child td {
-    background-color: #000000;
-    color: #ffffff;
-
+table tr:first-child,
+table tr:last-child {
+    filter: brightness(100%);
+    background: #ffffff;
+    color: #000000;
     font-weight: 700;
 }
 
@@ -146,7 +149,74 @@ dialog {
     border-radius: 10px;
 }
 
+dialog form div.inputs {
+    display: grid;
+    grid-template-columns: 1fr 70% ;
+    gap: 1rem;
+}
+
+dialog form div.inputs input {
+    width: 100%;
+}
+
+dialog form div.inputs input[value='Não']:hover {
+    animation: happybounce 1.5s infinite ease-in-out;
+    background: green;
+    color: #ffffff;
+}
+
+dialog form div.inputs input[value='Sim']:hover {
+    animation: shaking 0.4s infinite;
+    background: #91343d;
+    color: #ffffff;
+}
+
 dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.7);
     backdrop-filter: blur(5px);
+}
+
+@keyframes shaking {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    20% {
+        transform: translate(-3px, 0px) rotate(1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    40% {
+        transform: translate(1px, -1px) rotate(1deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    60% {
+        transform: translate(-3px, 1px) rotate(0deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    80% {
+        transform: translate(-1px, -1px) rotate(1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+@keyframes happybounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
 }
