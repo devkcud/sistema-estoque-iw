@@ -7,6 +7,8 @@ ul#produtos {
     display: flex;
     flex-wrap: wrap;
 
+    justify-content: center;
+
     gap: 3rem 1rem;
 }
 
@@ -16,7 +18,7 @@ ul#produtos li {
     display: flex;
     flex-direction: column;
 
-    background-color: #f3f3f3;
+    background: #f3f3f3;
 
     padding: 1rem;
 

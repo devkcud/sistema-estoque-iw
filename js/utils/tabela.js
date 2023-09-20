@@ -85,6 +85,6 @@ class Tabela {
         const total = Storage.inventario.reduce(function (valor, prod) {
             return valor + prod.precoUnitario * prod.quantidade;
         }, 0);
-        this.#criarLinha('', '', '', '', `R$${total.toFixed(2)}`);
+        this.#criarLinha('', '', '', '', `R$${total.toFixed(2)}`, '');
     }
 }
