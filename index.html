@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Sistema de Estoque</title>
+
+        <script src="js/utils/storage.js" defer></script>
+        <script src="js/home.js" defer></script>
+
+        <link rel="shortcut icon" href="assets/logo.png" />
+        <link rel="apple-touch-icon" href="assets/logo.png" />
+
+        <link rel="stylesheet" href="css/global.css" />
+        <link rel="stylesheet" href="css/home.css" />
+    </head>
+    <body>
+        <main>
+            <header>
+                <a href="estoque.html">
+                    <img src="assets/logo.png" alt="Logo" />
+                </a>
+
+                <div>
+                    <h1>LOOM</h1>
+                    <p>Home</p>
+                </div>
+            </header>
+
+            <section id="informacoes">
+                <h1>Sobre</h1>
+
+                <p>
+                    Atualmente o sistema de estoque tem
+                    <span id="quantidade">0</span> produtos. Sendo possível
+                    alterar, remover e inserir novos produtos em
+                    <a href="estoque.html">Estoque</a>.
+                </p>
+
+                <p>
+                    Todos os items somam um total de R$<span id="total">0</span>
+                </p>
+            </section>
+        </main>
+
+        <ul id="produtos"></ul>
+    </body>
+</html>
