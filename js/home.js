@@ -17,12 +17,14 @@ function criarItem(produto) {
     header.append(title, id);
 
     const price = document.createElement('p');
+    price.classList.add('preco');
+
     const quantidade = document.createElement('p');
 
     title.textContent = produto.nome;
-    price.textContent = `R$${parseFloat(produto.precoUnitario).toFixed(2)}`;
+    price.textContent = `R$${parseFloat(produto.precoUnitario).toFixed(2)} (x${produto.quantidade})`;
     id.textContent = produto.id;
-    quantidade.textContent = produto.quantidade;
+    quantidade.textContent = `Quantidade: ${produto.quantidade}`;
 
     item.append(header, price, quantidade);
 

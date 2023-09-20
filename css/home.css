@@ -1,0 +1,51 @@
+ul#produtos {
+    list-style: none;
+
+    padding: 2rem;
+    margin: 0;
+
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 3rem 1rem;
+}
+
+ul#produtos li {
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: #f3f3f3;
+
+    padding: 1rem;
+
+    border-radius: 10px;
+    border-bottom-right-radius: 0;
+}
+
+ul#produtos li div {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+
+    gap: 1rem;
+}
+
+ul#produtos li div p {
+    font-style: italic;
+}
+
+ul#produtos li p.preco {
+    position: absolute;
+
+    top: 100%;
+    right: 0;
+
+    font-weight: 700;
+    background-color: #f3f3f3;
+
+    border-radius: 0 0 10px 10px;
+
+    padding: 0.5rem;
+}
