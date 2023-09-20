@@ -18,67 +18,81 @@
             }
         </style>
 
-        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="css/style.css" />
     </head>
     <body>
-        <h1>Sistema de Estoque</h1>
+        <main>
+            <form id="form-add" method="POST">
+                <h2>Adicionar Produto</h2>
 
-        <form id="form-add" method="POST">
-            <h2>Adicionar Produto</h2>
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" required />
 
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" required />
+                <label for="quantidade">Quantidade</label>
+                <input type="number" name="quantidade" required />
 
-            <label for="quantidade">Quantidade</label>
-            <input type="number" name="quantidade" required />
+                <label for="preco">Preço Unitário</label>
+                <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    name="preco"
+                    required
+                />
 
-            <label for="preco">Preço Unitário</label>
-            <input type="number" min="0" step="0.01" name="preco" required />
-
-            <input type="submit" value="Adicionar" />
-        </form>
-
-        <form id="form-update" method="POST">
-            <h2>Atualizar Produto</h2>
-
-            <label for="id">ID</label>
-            <select name="id-select" id="atualizar-id-select" required></select>
-
-            <label for="nome">Nome</label>
-            <input type="text" name="nome" />
-
-            <label for="quantidade">Quantidade</label>
-            <input type="number" name="quantidade" />
-
-            <label for="preco">Preço Unitário</label>
-            <input type="number" min="0" step="0.01" name="preco" />
-
-            <input type="submit" value="Atualizar" />
-        </form>
-
-        <form id="form-remove" method="POST">
-            <h2>Remover Produto</h2>
-
-            <label for="id">ID</label>
-            <select name="id-select" id="remove-id-select" required></select>
-
-            <input type="submit" value="Remover" />
-        </form>
-
-        <dialog id="confirm-remove">
-            <form method="DIALOG">
-                <h2>Remover Produto</h2>
-                <p>Tem certeza que deseja remover este produto?</p>
-
-                <input type="submit" value="Sim" />
-                <input type="submit" value="Não" />
+                <input type="submit" value="Adicionar" />
             </form>
-        </dialog>
+
+            <form id="form-update" method="POST">
+                <h2>Atualizar Produto</h2>
+
+                <label for="id">ID</label>
+                <select
+                    name="id-select"
+                    id="atualizar-id-select"
+                    required
+                ></select>
+
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" />
+
+                <label for="quantidade">Quantidade</label>
+                <input type="number" name="quantidade" />
+
+                <label for="preco">Preço Unitário</label>
+                <input type="number" min="0" step="0.01" name="preco" />
+
+                <input type="submit" value="Atualizar" />
+            </form>
+
+            <form id="form-remove" method="POST">
+                <h2>Remover Produto</h2>
+
+                <label for="id">ID</label>
+                <select
+                    name="id-select"
+                    id="remove-id-select"
+                    required
+                ></select>
+
+                <input type="submit" value="Remover" />
+            </form>
+
+            <dialog id="confirm-remove">
+                <form method="DIALOG">
+                    <h2>Remover Produto</h2>
+                    <p>Tem certeza que deseja remover este produto?</p>
+
+                    <input type="submit" value="Sim" />
+                    <input type="submit" value="Não" />
+                </form>
+            </dialog>
+        </main>
 
         <section id="lista-produtos">
             <h2>Lista de Produtos</h2>
 
-            <table border="1" cellspacing="0"></table>
+            <table cellspacing="0"></table>
         </section>
     </body>
 </html>
