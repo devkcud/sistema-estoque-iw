@@ -31,6 +31,28 @@ body > main {
     padding: 2rem;
 }
 
+header {
+    display: flex;
+    align-items: top;
+    gap: 1rem;
+
+    margin-block: 2rem;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+}
+
+header p {
+    font-size: 1.2rem;
+    font-style: italic;
+}
+
 form {
     display: flex;
     flex-direction: column;
