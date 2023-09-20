@@ -45,7 +45,7 @@ form > label {
 }
 
 form > label::before {
-    content: '?';
+    content: '!';
 
     margin-right: 1rem;
 
@@ -62,12 +62,14 @@ form > input {
     background: none;
 
     border: none;
+    border-radius: 10px;
+
     box-shadow: 0 0 2px #000000;
     padding: 0.5rem;
 }
 
 form input[type='submit'] {
-    margin-top: 1rem;
+    margin-block: 1rem;
     padding: 1rem;
 
     border: none;
@@ -118,14 +120,17 @@ table {
     width: 100%;
 }
 
+table tr td {
+    padding: 1rem;
+}
+
 table tr:nth-child(odd) {
-    background: #78a1bb;
-    filter: brightness(80%);
+    background: #313a49;
+    color: #ffffff;
 }
 
 table tr:nth-child(even) {
     background: #283044;
-    filter: brightness(90%);
     color: #ffffff;
 }
 
@@ -151,7 +156,7 @@ dialog {
 
 dialog form div.inputs {
     display: grid;
-    grid-template-columns: 1fr 70% ;
+    grid-template-columns: 1fr 70%;
     gap: 1rem;
 }
 
@@ -213,7 +218,8 @@ dialog::backdrop {
 }
 
 @keyframes happybounce {
-    0%, 100% {
+    0%,
+    100% {
         transform: scale(1);
     }
     50% {

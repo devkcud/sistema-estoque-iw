@@ -12,11 +12,8 @@
         <script src="js/utils/tabela.js" defer></script>
         <script src="js/main.js" defer></script>
 
-        <style>
-            table * {
-                padding: 10px;
-            }
-        </style>
+        <link rel="shortcut icon" href="assets/logo.png" />
+        <link rel="apple-touch-icon" href="assets/logo.png" />
 
         <link rel="stylesheet" href="css/style.css" />
     </head>
@@ -63,19 +60,6 @@
                 <input type="number" min="0" step="0.01" name="preco" />
 
                 <input type="submit" value="Atualizar" />
-            </form>
-
-            <form id="form-remove" method="POST">
-                <h2>Remover Produto</h2>
-
-                <label for="id">ID</label>
-                <select
-                    name="id-select"
-                    id="remove-id-select"
-                    required
-                ></select>
-
-                <input type="submit" value="Remover" />
             </form>
 
             <dialog id="confirm-remove">

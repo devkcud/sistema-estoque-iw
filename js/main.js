@@ -2,10 +2,23 @@ const estoque = new Estoque();
 const tabela = new Tabela();
 const select = new Select();
 
+const formAdd = document.getElementById('form-add');
+const formUpdate = document.getElementById('form-update');
+const formRemove = document.getElementById('form-remove');
+
 tabela.atualizar();
 select.atualizar();
 
-document.getElementById('form-add').addEventListener('submit', (e) => {
+function limparFormUpdate() {
+    formUpdate.querySelector('select').value = '';
+    formUpdate.querySelector('input[name="nome"]').value = '';
+    formUpdate.querySelector('input[name="quantidade"]').value = '';
+    formUpdate.querySelector('input[name="preco"]').value = '';
+}
+
+limparFormUpdate();
+
+formAdd.addEventListener('submit', (e) => {
     e.preventDefault();
 
     estoque.adicionar(
@@ -21,9 +34,10 @@ document.getElementById('form-add').addEventListener('submit', (e) => {
     Storage.inventario = estoque.produtos;
     tabela.atualizar();
     select.atualizar();
+
+    limparFormUpdate();
 });
 
-const formUpdate = document.getElementById('form-update');
 formUpdate.querySelector('select').addEventListener('change', (e) => {
     formUpdate.querySelector('input[name="nome"]').value =
         Storage.inventario.find(
@@ -41,7 +55,7 @@ formUpdate.querySelector('select').addEventListener('change', (e) => {
         ).precoUnitario;
 });
 
-document.getElementById('form-update').addEventListener('submit', (e) => {
+formUpdate.addEventListener('submit', (e) => {
     e.preventDefault();
 
     estoque.atualizar(
@@ -51,16 +65,14 @@ document.getElementById('form-update').addEventListener('submit', (e) => {
         e.target['preco'].value,
     );
 
-    const indexAnterior = e.target['id-select'].selectedIndex;
-
     Storage.inventario = estoque.produtos;
     tabela.atualizar();
     select.atualizar();
 
-    e.target['id-select'].selectedIndex = indexAnterior;
+    limparFormUpdate();
 });
 
-document.getElementById('form-remove').addEventListener('submit', (e) => {
+formRemove.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const dialog = document.querySelector('dialog#confirm-remove');
@@ -82,6 +94,8 @@ document.getElementById('form-remove').addEventListener('submit', (e) => {
             Storage.inventario = estoque.produtos;
             tabela.atualizar();
             select.atualizar();
+
+            limparFormUpdate();
         }
     });
 });
