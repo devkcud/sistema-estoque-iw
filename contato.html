@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Sistema de Estoque - Contato</title>
+
+        <link rel="shortcut icon" href="assets/logo.png" />
+        <link rel="apple-touch-icon" href="assets/logo.png" />
+
+        <link rel="stylesheet" href="css/contato.css" />
+    </head>
+    <body>
+        <header>
+            <a href="/">
+                <img src="assets/logo.png" alt="Logo" />
+            </a>
+
+            <div>
+                <h1>LOOM</h1>
+                <p>Contato</p>
+            </div>
+        </header>
+
+        <main>
+            <form method="POST">
+                <h2>Contato</h2>
+
+                <label for="nome">Nome</label>
+                <input type="text" name="nome" placeholder="Nome" required />
+
+                <label for="email">E-mail</label>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder="E-mail"
+                    required
+                />
+
+                <label for="mensagem">Mensagem</label>
+                <textarea
+                    name="mensagem"
+                    placeholder="Mensagem"
+                    required
+                ></textarea>
+
+                <input type="submit" value="Enviar" />
+            </form>
+        </main>
+    </body>
+</html>

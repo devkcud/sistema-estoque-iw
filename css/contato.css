@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+
+    box-sizing: border-box;
+
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+    padding: 1rem;
+
+    width: 100%;
+
+    background-color: #282828;
+    color: #fff;
+}
+
+header img {
+    width: 50px;
+    height: 50px;
+
+    animation: spin 2s linear infinite;
+
+    filter: invert(1) saturate(0);
+
+    cursor: pointer;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    height: calc(100vh - 52px * 2);
+}
+
+main form {
+    display: flex;
+    flex-direction: column;
+}
+
+main form > label {
+    margin-top: 1rem;
+}
+
+main form > label::before {
+    content: '!';
+
+    margin-right: 1rem;
+
+    color: #512d6d;
+
+    font-weight: 700;
+}
+
+main form > label::after {
+    content: ':';
+}
+
+main form > :is(input:not([type=submit]), textarea) {
+    background: none;
+
+    border: none;
+    border-bottom: 1px solid #000000;
+
+    padding: 2rem;
+}
+
+main form > textarea {
+    resize: none;
+    aspect-ratio: 16 / 9;
+}
+
+main form > input[type=submit] {
+    margin-top: 2rem;
+
+    background-color: #000000;
+
+    color: #fff;
+
+    border: none;
+
+    cursor: pointer;
+
+    transition: all 0.2s;
+
+    font-weight: 700;
+
+    font-size: 1.2rem;
+
+    padding: 1rem;
+
+    border-radius: 10px;
+
+    outline: none;
+}
+
+main form > input[type=submit]:hover {
+    filter: brightness(0.9);
+
+    transform: scale(1.1) rotate(-1deg);
+}
