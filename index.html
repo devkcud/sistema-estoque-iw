@@ -19,36 +19,11 @@
     </head>
     <body>
         <main>
-            <form id="form-add" method="POST">
-                <h2>Adicionar Produto</h2>
-
-                <label for="nome">Nome</label>
-                <input type="text" name="nome" required />
-
-                <label for="quantidade">Quantidade</label>
-                <input type="number" name="quantidade" required />
-
-                <label for="preco">Preço Unitário</label>
-                <input
-                    type="number"
-                    min="0"
-                    step="0.01"
-                    name="preco"
-                    required
-                />
-
-                <input type="submit" value="Adicionar" />
-            </form>
-
-            <form id="form-update" method="POST">
+            <form id="form-insert" method="POST">
                 <h2>Atualizar Produto</h2>
 
                 <label for="id">ID</label>
-                <select
-                    name="id-select"
-                    id="atualizar-id-select"
-                    required
-                ></select>
+                <select name="id-select" required></select>
 
                 <label for="nome">Nome</label>
                 <input type="text" name="nome" />

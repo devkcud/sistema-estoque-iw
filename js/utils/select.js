@@ -22,6 +22,7 @@ class Select {
             optionVazio.hidden = true;
 
             select.appendChild(optionVazio);
+            select.appendChild(criarOption('novo', 'Novo'));
 
             Storage.inventario.forEach((produto) =>
                 select.appendChild(criarOption(produto.id, `${produto.nome} (${produto.id})`)),
